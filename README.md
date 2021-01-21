@@ -117,14 +117,24 @@ mutation {
     firstName: "Harry",
     lastName: "Potter",
     email: "email",
-    birthdate: "dfdsf"
+    birthdate: "04/11/1986"
   })
-
   // To receive a response with firstName and id, we mention it below
   {
     user {
       id
       firstName
+    }
+  }
+}
+// response
+{
+  "data": {
+    "createUser": {
+      "user": {
+        "id": "4",
+        "firstName": "Harry"
+      }
     }
   }
 }
