@@ -1,6 +1,6 @@
 # README
 
-### Helpful resources
+### Helpful resources 📚
 
 <https://graphql-ruby.org/getting_started.html>
 
@@ -8,6 +8,10 @@
 
 <https://github.com/rmosolgo/graphql-ruby/blob/master/guides/fields/arguments.md>
 
+### Getting started 🚀
+
+Graphql is a query langage for API, and allow client to ask for needed informations only.
+For example, we have a User model, with more than 100 attributes. We just want to fetch user's emails.
 Once `graphql` is installed, run `bundle install`
 
 ```bash
@@ -16,20 +20,19 @@ rails g graphql:install
 
 Then run again `bundle`
 
-Graphql is a query langage for API, and allow client to ask for needed informations only.
-For example, we have a User model, with more than 100 attributes. We just want to fetch user's emails.
-
 ```json
 "user: {
   email: 'example@email.com'
 }"
 ```
 
-- Here, we make a request to receive the `id` and the `lastName` for each users in the response:
+## Examples
 
-### Test on /graphiql
+- We make a request to receive the `id` and the `lastName` for each users in the response:
 
-Open the /graphiql url to test the requests
+### on /graphiql
+
+Open the `/graphiql` url to test the requests
 
 ```json
 // request
@@ -56,9 +59,15 @@ Open the /graphiql url to test the requests
 }
 ```
 
+### Request with curl
+
+```bash
+curl -XPOST -d 'query={ allUsers { id lastName } }' http://localhost:3000
+```
+
 ### Chain the requests
 
-- We need multiple informations: a users list and the user with id number 2.
+We need multiple informations: a users list and the birthdate of a user.
 
 ```json
 // request
@@ -90,12 +99,6 @@ Open the /graphiql url to test the requests
     }
   }
 }
-```
-
-### Request with curl
-
-```bash
-curl -XPOST -d 'query={ allUsers { id lastName } }' http://localhost:3000
 ```
 
 ### Mutations
